@@ -1,0 +1,13 @@
+[init]
+	defaultBranch = master
+[push]
+    autoSetupRemote = true    
+[commit]
+    verbose = true
+[pager]
+	log = false
+[user]
+	email = mail@mhsn.net
+	name = mhsn
+[alias]
+	adog = log --all --decorate --oneline --graph
