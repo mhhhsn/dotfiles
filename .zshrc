@@ -13,9 +13,6 @@ HISTFILE=~/.history
 SAVEHIST=$HISTSIZE
 setopt hist_ignore_space
 
-# Environment variables
-LANG=en_GB.UTF-8
-
 # Autocompletion and tabcompletion
 autoload -U compinit
 zstyle ':completion:*' menu select
