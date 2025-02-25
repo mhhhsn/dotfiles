@@ -1,13 +1,28 @@
+[alias]
+	adog = log --all --decorate --oneline --graph
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[commit]
+	verbose = true
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[help]
+	autocorrect = prompt
 [init]
 	defaultBranch = master
+[merge]
+	conflictstyle = zdiff3
+[pull]
+	rebase = true
 [push]
-    autoSetupRemote = true    
-[commit]
-    verbose = true
-[pager]
-	log = false
+	autoSetupRemote = true
+[tag]
+	sort = version:refname
 [user]
 	email = mail@mhsn.net
 	name = mhsn
-[alias]
-	adog = log --all --decorate --oneline --graph
