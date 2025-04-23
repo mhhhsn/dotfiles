@@ -6,6 +6,8 @@
 	ui = auto
 [commit]
 	verbose = true
+[core]
+	editor = nvim
 [diff]
 	algorithm = histogram
 	colorMoved = plain
