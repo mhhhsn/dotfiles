@@ -14,7 +14,7 @@
 	mnemonicPrefix = true
 	renames = true
 [help]
-	autocorrect = prompt
+	autocorrect = immediate
 [init]
 	defaultBranch = master
 [merge]
