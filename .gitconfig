@@ -5,6 +5,7 @@
 [column]
 	ui = auto
 [commit]
+	gpgsign = true
 	verbose = true
 [core]
 	editor = nvim
@@ -24,7 +25,9 @@
 [push]
 	autoSetupRemote = true
 [tag]
+	gpgsign = true
 	sort = version:refname
 [user]
 	email = mail@mhsn.net
 	name = mhsn
+	signingkey = BABE9F12A20922D8C71A7499D63E2C6BDA5DDE1A
