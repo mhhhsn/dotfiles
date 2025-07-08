@@ -1,5 +1,4 @@
-[ -e /etc/profile.env ] && . /etc/profile.env
-[ -e ~/.yash_profile ] && . ~/.yash_profile
+# vim: filetype=sh
 
 # >>> prompt <<<
 if [ -n "${SSH_CONNECTION-}" ]; then
@@ -30,14 +29,18 @@ YASH_PS1S='\fo.'
 YASH_PS2=$_2c'> '
 YASH_PS2R=
 YASH_PS2S=$YASH_PS1S
-
 YASH_PS4='\fm.+ '
 YASH_PS4S='\fmo.'
 unset _hc _uc _2c
 # no escape sequences allowed in the POSIXly-correct mode.
 PS1='${LOGNAME}@${HOSTNAME%%.*} '$PS1
 
+
 # >>> options <<<
+
+# variables needed for command history
+HISTFILE=$XDG_CACHE_HOME/yash_history
+HISTSIZE=5000
 
 # enable bash-like extended expansion
 set --brace-expand
@@ -89,19 +92,6 @@ if command --identify --builtin-command bindkey >/dev/null; then
 
 fi
 
-# >>> alias <<<
-
-alias -- -='cd -'
-alias la='ls -a'
-alias ll='ls -l'
-alias lla='ll -a'
-alias r='fc -s'
-alias o='xdg-open'
-alias svi='doas vi'
-alias sus='doas s2ram'
-alias off='doas poweroff'
-alias reb='doas reboot'
-
 # ensure job control works as expected
 case $- in (*m*)
   trap - TSTP TTIN TTOU
@@ -119,11 +109,6 @@ if [ "$(tput colors 2>/dev/null || echo 0)" -ge 8 ]; then
   fi
 fi
 
-# variables needed for command history
-HISTFILE=$XDG_STATE_HOME/yash_history
-HISTSIZE=5000
-# HISTRMDUP makes prediction less accurate
-# HISTRMDUP=500
 
 # initialize event handlers
 COMMAND_NOT_FOUND_HANDLER=()
@@ -175,17 +160,6 @@ if [ -d "$1" ]; then
 fi
 COMMAND_NOT_FOUND_HANDLER=("$COMMAND_NOT_FOUND_HANDLER" '_autocd "$@"')
 
-# treat command names starting with % as "fg"
-_autofg()
-if [ $# -eq 1 ]; then
-  case $1 in (%*)
-    HANDLED=true
-    fg "$1"
-    break -i
-  esac
-fi
-COMMAND_NOT_FOUND_HANDLER=("$COMMAND_NOT_FOUND_HANDLER" '_autofg "$@"')
-
 # print file type when executing non-executable files
 _file_type()
 if [ -e "$1" ] && ! [ -d "$1" ]; then
@@ -193,3 +167,24 @@ if [ -e "$1" ] && ! [ -d "$1" ]; then
 fi
 COMMAND_NOT_FOUND_HANDLER=("$COMMAND_NOT_FOUND_HANDLER" '_file_type "$@"')
 
+# >>> common aliases and functions <<<
+
+alias -- -='cd -'
+alias la='ls -a'
+alias ll='ls -l'
+alias lla='ll -a'
+alias o='xdg-open'
+
+# usage: weather [some place]
+# defaults to london
+function weather() {
+  curl v2.wttr.in/${1:-london}
+}
+
+# adds venv bin to path. python devs are not POSIX :(
+function venv() {
+    export PATH="$(pwd)/.venv/bin:$PATH"
+}
+
+# try to load a host-specific file now
+[ -e $XDG_CONFIG_HOME/yash/$(uname -n) ] && . $XDG_CONFIG_HOME/yash/$(uname -n)
