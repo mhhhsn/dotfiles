@@ -1,5 +1,5 @@
 [alias]
-	adog = log --all --decorate --oneline --graph
+	adog = log --all --oneline --graph --format='%C(cyan)%h %C(magenta)%an%C(auto)%d %<(80,trunc)%s'
 [branch]
 	sort = -committerdate
 [column]
