@@ -39,7 +39,7 @@ PS1='${LOGNAME}@${HOSTNAME%%.*} '$PS1
 # >>> options <<<
 
 # variables needed for command history
-HISTFILE=$XDG_CACHE_HOME/yash_history
+HISTFILE=${XDG_CACHE_HOME:=~/.cache}/yash_history
 HISTSIZE=5000
 
 # enable bash-like extended expansion
@@ -187,4 +187,4 @@ function venv() {
 }
 
 # try to load a host-specific file now
-[ -e $XDG_CONFIG_HOME/yash/$(uname -n) ] && . $XDG_CONFIG_HOME/yash/$(uname -n)
+[ -e ${XDG_CONFIG_HOME:=~/.config}/yash/$(uname -n) ] && . $XDG_CONFIG_HOME/yash/$(uname -n)
