@@ -1,0 +1,52 @@
+# vim: filetype=neomuttrc
+
+set folder = "~/org/mail"
+set sendmail = "msmtp --account mail@mhsn.net"
+
+# user
+set from = mail@mhsn.net
+set real_name = mhsn
+set use_envelope_from = yes
+alternates ".*@mhsn.net" ".*@sorokin.ee"
+
+set auto_edit = yes
+set fast_reply = yes
+set edit_headers = yes
+set reverse_name = yes # use From: to fill in email
+set reverse_real_name = yes
+set text_flowed = yes
+
+# mailboxes
+set spool_file = +INBOX
+set record = +Sent
+set trash = +Trash
+set postponed = +Drafts
+mailboxes =INBOX =Sent =Trash =Drafts =Junk =Archive
+mailboxes `find ~/org/mail -type d -name cur | xargs dirname | sort | xargs`
+
+# formatting
+set sort = threads
+set sort_aux = reverse-last-date-received
+set mark_old = no
+set fast_reply = yes
+set include = yes
+set index_format = "%4C %Z (%4c) %[%a %F %H:%M] %-20.20F %s"
+
+# file formats
+auto_view text/html
+auto_view application/pgp-encrypted
+alternative_order text/plain text/enriched text/html
+
+# sidebar
+set mail_check_stats = yes
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set sidebar_delim_chars = "/"
+set sidebar_folder_indent
+set sidebar_indent_string = "  "
+set sidebar_format = '%D%?F? [%F]?%* %?N?%N/? %?S?%S?'
+
+source colors
+source binds

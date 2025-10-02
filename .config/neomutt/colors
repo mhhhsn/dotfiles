@@ -1,0 +1,67 @@
+# vim: filetype=neomuttrc
+
+# default index colors:
+color index white default '.*'
+color index_author red default '.*'
+color index_date brightblue default '.*'
+color index_flags green default '.*'
+color index_size magenta default '.*'
+
+# new mail is bold and green
+color index bold default default "~N"
+color index_subject green default "~N"
+
+# tagged mail is highlighted
+color index default brightblack "~T"
+
+# flagged mail is all yellow
+color index brightyellow default "~F"
+color index_author brightyellow default "~F"
+color index_date brightyellow default "~F"
+color index_flags brightyellow default "~F"
+color index_size brightyellow default "~F"
+
+# other colors and aesthetic settings:
+color normal default default
+color indicator bold brightcyan default
+
+# sidebar colors
+color sidebar_highlight bold brightcyan default
+color sidebar_indicator black white
+color sidebar_divider brightblack default
+color sidebar_flagged yellow default
+color sidebar_new green default
+
+color error red default
+color tilde black default
+color message cyan default
+color markers red white
+color attachment white default
+color search brightmagenta default
+color status brightyellow black
+color hdrdefault brightgreen default
+
+color quoted brightblack default
+
+color signature brightgreen default
+color bold black default
+color underline black default
+
+# Regex highlighting:
+color header blue default ".*"
+color header brightmagenta default "^From"
+color header brightgreen default "^Subject"
+color header brightwhite default "^(CC|BCC)"
+
+color body brightred default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+" # Email addresses
+color body brightblue default "(https?|ftp)://[\-\.,/%~_:?&=\#a-zA-Z0-9]+" # URL
+color body green default "\`[^\`]*\`" # Green text between ` and `
+color body red default "(BAD signature)"
+color body cyan default "(Good signature)"
+color body brightblack default "^gpg: Good signature .*"
+color body brightyellow default "^gpg: "
+color body brightyellow red "^gpg: BAD signature from.*"
+# uris
+color body red default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+
+
