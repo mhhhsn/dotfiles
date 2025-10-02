@@ -1,0 +1,22 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[ui]
+default-command = "log"
+show-cryptographic-signatures = true
+
+[user]
+name = "mhsn"
+email = "mail@mhsn.net"
+
+[signing]
+behavior = "own"
+backend = "gpg"
+key = "mail@mhsn.net"
+
+[template-aliases]
+'format_short_cryptographic_signature(sig)' = '''
+  if(sig,
+    sig.status(),
+    "(no sig)",
+  )
+'''
