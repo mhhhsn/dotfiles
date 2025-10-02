@@ -1,0 +1,33 @@
+[alias]
+	adog = log --all --oneline --graph --format='%C(cyan)%h %C(magenta)%an%C(auto)%d %<(80,trunc)%s'
+[branch]
+	sort = -committerdate
+[column]
+	ui = auto
+[commit]
+	gpgsign = true
+	verbose = true
+[core]
+	editor = nvim
+[diff]
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
+[help]
+	autocorrect = immediate
+[init]
+	defaultBranch = master
+[merge]
+	conflictstyle = zdiff3
+[pull]
+	rebase = true
+[push]
+	autoSetupRemote = true
+[tag]
+	gpgsign = true
+	sort = version:refname
+[user]
+	email = mail@mhsn.net
+	name = mhsn
+	signingkey = BABE9F12A20922D8C71A7499D63E2C6BDA5DDE1A
